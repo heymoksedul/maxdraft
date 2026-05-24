@@ -2,6 +2,8 @@
 
 import * as React from 'react'
 import type { Editor } from '@tiptap/core'
+import type {} from '@tiptap/extension-task-list'
+import type {} from '@tiptap/extension-table'
 import type { SlashCommandItem } from '@maxdraft/shared'
 import { cn } from '@maxdraft/shared'
 

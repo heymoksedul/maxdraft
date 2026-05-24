@@ -16,7 +16,7 @@ export function applyTheme(
   theme: ThemeName,
   element: HTMLElement = document.documentElement,
 ): void {
-  const tokens = THEME_MAP[theme]
+  const tokens = THEME_MAP[theme] as unknown as Record<string, string>
   Object.entries(tokens).forEach(([key, value]) => {
     element.style.setProperty(key, value)
   })
@@ -30,8 +30,9 @@ export function getThemeTokens(theme: ThemeName): ThemeTokens {
 }
 
 /**
- * Converts a ThemeTokens object to an inline `style` object accepted by React.
+ * Converts a ThemeTokens object to an inline style record accepted by React
+ * (`style` prop or `CSSProperties`).
  */
-export function themeToStyle(tokens: ThemeTokens): React.CSSProperties {
-  return tokens as unknown as React.CSSProperties
+export function themeToStyle(tokens: ThemeTokens): Record<string, string> {
+  return tokens as unknown as Record<string, string>
 }

@@ -6,6 +6,15 @@ export interface CalloutOptions {
   HTMLAttributes: Record<string, unknown>
 }
 
+declare module '@tiptap/core' {
+  interface Commands<ReturnType> {
+    callout: {
+      setCallout: (attributes?: { variant?: CalloutVariant }) => ReturnType
+      unsetCallout: () => ReturnType
+    }
+  }
+}
+
 /**
  * Callout extension — renders a styled callout / admonition block.
  *
@@ -60,6 +69,6 @@ export const Callout = Node.create<CalloutOptions>({
         ({ commands }) => {
           return commands.lift(this.name)
         },
-    } as ReturnType<typeof this.addCommands>
+    }
   },
 })

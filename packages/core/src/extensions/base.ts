@@ -24,7 +24,7 @@ const lowlight = createLowlight(all)
  * Returns the default extension set for MaxDraft.
  * Pass `options` to customise behaviour (placeholder, image upload, etc.)
  */
-export function buildBaseExtensions(options: MaxDraftExtensionOptions = []) {
+export function buildBaseExtensions(options: MaxDraftExtensionOptions = {}) {
   return [
     StarterKit.configure({
       codeBlock: false, // replaced by CodeBlockLowlight

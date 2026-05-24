@@ -64,7 +64,7 @@ export default function PlaygroundPage() {
       </div>
 
       {/* Editor */}
-      <div style={themeTokens as React.CSSProperties}>
+      <div style={themeTokens as unknown as React.CSSProperties}>
         <Editor
           content={INITIAL_CONTENT}
           onChange={setContent}

@@ -1,0 +1,93 @@
+import type { ThemeName } from '../types'
+
+export type ThemeTokens = Record<string, string>
+
+const dark: ThemeTokens = {
+  '--md-bg':             '#1a1a1a',
+  '--md-bg-secondary':   '#1f1f1f',
+  '--md-border':         '#2e2e2e',
+  '--md-toolbar-bg':     '#212121',
+  '--md-toolbar-border': '#2e2e2e',
+  '--md-text':           '#e8e8e8',
+  '--md-text-muted':     '#787878',
+  '--md-text-subtle':    '#4a4a4a',
+  '--md-accent':         '#2a2a2a',
+  '--md-accent-fg':      '#fff',
+  '--md-accent-hover':   '#333333',
+  '--md-selection':      'rgba(99,102,241,0.25)',
+  '--md-code-bg':        '#252525',
+  '--md-code-text':      '#a78bfa',
+  '--md-radius':         '8px',
+  '--md-radius-sm':      '5px',
+  '--md-font':           '"Inter", -apple-system, sans-serif',
+  '--md-font-mono':      '"JetBrains Mono", "Fira Code", ui-monospace, monospace',
+  '--md-shadow':         '0 0 0 1px rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.5)',
+}
+
+const classic: ThemeTokens = {
+  '--md-bg':             '#ffffff',
+  '--md-bg-secondary':   '#fafafa',
+  '--md-border':         '#e4e4e7',
+  '--md-toolbar-bg':     '#fafafa',
+  '--md-toolbar-border': '#e4e4e7',
+  '--md-text':           '#09090b',
+  '--md-text-muted':     '#71717a',
+  '--md-text-subtle':    '#a1a1aa',
+  '--md-accent':         '#f4f4f5',
+  '--md-accent-fg':      '#09090b',
+  '--md-accent-hover':   '#e4e4e7',
+  '--md-selection':      '#dbeafe',
+  '--md-code-bg':        '#f4f4f5',
+  '--md-code-text':      '#7c3aed',
+  '--md-radius':         '8px',
+  '--md-radius-sm':      '4px',
+  '--md-font':           '"Inter", -apple-system, sans-serif',
+  '--md-font-mono':      '"JetBrains Mono", "Fira Code", ui-monospace, monospace',
+  '--md-shadow':         '0 1px 3px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.06)',
+}
+
+const minimal: ThemeTokens = {
+  '--md-bg':             '#fffdf7',
+  '--md-bg-secondary':   '#f7f5ef',
+  '--md-border':         '#e8e4da',
+  '--md-toolbar-bg':     '#f7f5ef',
+  '--md-toolbar-border': '#e8e4da',
+  '--md-text':           '#1c1917',
+  '--md-text-muted':     '#78716c',
+  '--md-text-subtle':    '#a8a29e',
+  '--md-accent':         '#f0ebe0',
+  '--md-accent-fg':      '#1c1917',
+  '--md-accent-hover':   '#e8e2d5',
+  '--md-selection':      '#fde68a',
+  '--md-code-bg':        '#f0ebe0',
+  '--md-code-text':      '#b45309',
+  '--md-radius':         '6px',
+  '--md-radius-sm':      '3px',
+  '--md-font':           '"Lora", "Georgia", serif',
+  '--md-font-mono':      'ui-monospace, monospace',
+  '--md-shadow':         '0 1px 4px rgba(0,0,0,0.07)',
+}
+
+const wordpress: ThemeTokens = {
+  '--md-bg':             '#ffffff',
+  '--md-bg-secondary':   '#f6f7f7',
+  '--md-border':         '#c3c4c7',
+  '--md-toolbar-bg':     '#f6f7f7',
+  '--md-toolbar-border': '#c3c4c7',
+  '--md-text':           '#1d2327',
+  '--md-text-muted':     '#50575e',
+  '--md-text-subtle':    '#8c8f94',
+  '--md-accent':         '#f0f0f1',
+  '--md-accent-fg':      '#2271b1',
+  '--md-accent-hover':   '#e2e4e7',
+  '--md-selection':      '#c7e0f4',
+  '--md-code-bg':        '#f0f0f1',
+  '--md-code-text':      '#2271b1',
+  '--md-radius':         '4px',
+  '--md-radius-sm':      '2px',
+  '--md-font':           '"Segoe UI", system-ui, sans-serif',
+  '--md-font-mono':      'Consolas, Monaco, monospace',
+  '--md-shadow':         '0 1px 3px rgba(0,0,0,0.1)',
+}
+
+export const THEMES: Record<ThemeName, ThemeTokens> = { dark, classic, minimal, wordpress }

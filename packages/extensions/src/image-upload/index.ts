@@ -38,7 +38,7 @@ export const ImageUpload = Extension.create<ImageUploadOptions>({
         src = await fileToDataUrl(file)
       }
 
-      editor.chain().focus().setImage({ src, alt: file.name }).run()
+      ;(editor.chain().focus() as ReturnType<typeof editor.chain> & { setImage: (o: { src: string; alt: string }) => { run: () => void } }).setImage({ src, alt: file.name }).run()
     }
 
     return [

@@ -29,8 +29,11 @@ export function useMaxDraftEditor(props: MaxDraftEditorProps) {
     [autoSaveDelay],
   )
 
+  // exactOptionalPropertyTypes: omit the key entirely when undefined
+  const extensionOptions = placeholder !== undefined ? { placeholder } : {}
+
   const editor = useTiptapEditor({
-    extensions: buildBaseExtensions({ placeholder }),
+    extensions: buildBaseExtensions(extensionOptions),
     content,
     editable,
 

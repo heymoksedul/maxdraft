@@ -7,25 +7,24 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./classic": "./dist/classic.css",
-    "./minimal": "./dist/minimal.css",
-    "./dark": "./dist/dark.css",
-    "./wordpress": "./dist/wordpress.css",
-    "./base": "./dist/base.css"
+      "require": "./dist/index.js"
+    }
   },
   "files": ["dist"],
   "scripts": {
-    "build": "tsup && node scripts/build-css.mjs",
+    "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
+  "dependencies": {
+    "@maxdraft/shared": "workspace:*"
+  },
   "devDependencies": {
+    "@types/react": "^18.2.55",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },

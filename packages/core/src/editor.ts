@@ -27,10 +27,13 @@ export function createEditor(options: CreateEditorOptions = {}): Editor {
     onFocus,
   } = options
 
+  // exactOptionalPropertyTypes requires we omit the key entirely when undefined
+  const extensionOptions = placeholder !== undefined ? { placeholder } : {}
+
   return new Editor({
     content,
     editable,
-    extensions: buildBaseExtensions({ placeholder }),
+    extensions: buildBaseExtensions(extensionOptions),
 
     onUpdate({ editor }) {
       onUpdate?.(editor)

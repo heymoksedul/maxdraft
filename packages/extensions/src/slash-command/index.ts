@@ -1,6 +1,7 @@
+import type { ReactElement } from 'react'
 import { Extension } from '@tiptap/core'
-import { ReactRenderer } from '@tiptap/react'
-import Suggestion, { type SuggestionOptions } from '@tiptap/suggestion'
+import type { Range } from '@tiptap/core'
+import Suggestion from '@tiptap/suggestion'
 import type { SlashCommandItem } from '@maxdraft/shared'
 
 export interface SlashCommandOptions {
@@ -9,7 +10,7 @@ export interface SlashCommandOptions {
     items: SlashCommandItem[]
     command: (item: SlashCommandItem) => void
     selectedIndex: number
-  }) => React.ReactElement
+  }) => ReactElement
 }
 
 /**
@@ -21,8 +22,7 @@ export const SlashCommand = Extension.create<SlashCommandOptions>({
 
   addOptions() {
     return {
-      items: [],
-      renderComponent: undefined,
+      items: [] as SlashCommandItem[],
     }
   },
 
@@ -31,12 +31,20 @@ export const SlashCommand = Extension.create<SlashCommandOptions>({
       Suggestion({
         editor: this.editor,
         char: '/',
-        command: ({ editor, range, props }) => {
+        command: ({
+          editor,
+          range,
+          props,
+        }: {
+          editor: import('@tiptap/core').Editor
+          range: Range
+          props: unknown
+        }) => {
           const item = props as SlashCommandItem
           editor.chain().focus().deleteRange(range).run()
           item.action(editor)
         },
-        items: ({ query }) => {
+        items: ({ query }: { query: string }) => {
           const allItems = this.options.items ?? []
           if (!query) return allItems
           const q = query.toLowerCase()
@@ -46,7 +54,7 @@ export const SlashCommand = Extension.create<SlashCommandOptions>({
               item.keywords.some((k) => k.includes(q)),
           )
         },
-      } as unknown as SuggestionOptions),
+      }),
     ]
   },
 })

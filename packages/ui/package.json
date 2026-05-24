@@ -7,9 +7,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./styles": "./dist/styles.css"
   },
@@ -24,8 +24,11 @@
   "dependencies": {
     "@maxdraft/core": "workspace:*",
     "@maxdraft/shared": "workspace:*",
+    "@tiptap/core": "^2.3.0",
     "@tiptap/react": "^2.3.0",
     "@tiptap/extension-bubble-menu": "^2.3.0",
+    "@tiptap/extension-task-list": "^2.3.0",
+    "@tiptap/extension-table": "^2.3.0",
     "lucide-react": "^0.368.0",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-tooltip": "^1.0.7",
