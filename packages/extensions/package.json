@@ -1,0 +1,42 @@
+{
+  "name": "@maxdraft/extensions",
+  "version": "0.0.1",
+  "description": "Custom Tiptap extensions for MaxDraft",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@maxdraft/shared": "workspace:*",
+    "@tiptap/core": "^2.3.0",
+    "@tiptap/react": "^2.3.0",
+    "@tiptap/extension-placeholder": "^2.3.0",
+    "tippy.js": "^6.3.7"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
+  },
+  "sideEffects": false
+}

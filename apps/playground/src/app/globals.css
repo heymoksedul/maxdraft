@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ─── MaxDraft base styles ────────────────────────────────────────────────── */
+.maxdraft-root {
+  font-family: var(--md-font-body);
+  color: var(--md-text);
+  background: var(--md-bg);
+  border: 1px solid var(--md-border);
+  border-radius: var(--md-radius);
+  overflow: hidden;
+}
+
+.maxdraft-editor-wrapper {
+  padding: 1.5rem 2rem;
+  min-height: 400px;
+}
+
+/* ProseMirror */
+.ProseMirror {
+  outline: none;
+  min-height: 360px;
+  line-height: 1.75;
+}
+
+.ProseMirror p { margin: 0 0 0.75em; }
+.ProseMirror h1 { font-size: 2em; font-weight: 700; margin: 1em 0 0.5em; }
+.ProseMirror h2 { font-size: 1.5em; font-weight: 600; margin: 1em 0 0.5em; }
+.ProseMirror h3 { font-size: 1.25em; font-weight: 600; margin: 1em 0 0.5em; }
+.ProseMirror h4 { font-size: 1.1em; font-weight: 600; margin: 1em 0 0.5em; }
+
+.ProseMirror blockquote {
+  border-left: 4px solid var(--md-border);
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  color: var(--md-text-muted);
+  font-style: italic;
+}
+
+.ProseMirror code {
+  background: var(--md-code-bg);
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+  font-family: var(--md-font-mono);
+  font-size: 0.9em;
+}
+
+.ProseMirror pre {
+  background: var(--md-code-bg);
+  border-radius: var(--md-radius);
+  padding: 1em;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.ProseMirror pre code { background: none; padding: 0; }
+
+.ProseMirror ul, .ProseMirror ol { padding-left: 1.5em; margin: 0.5em 0; }
+.ProseMirror li { margin: 0.25em 0; }
+
+.ProseMirror a.md-link { color: var(--md-accent-hover); text-decoration: underline; }
+
+.ProseMirror hr { border: none; border-top: 2px solid var(--md-border); margin: 1.5em 0; }
+
+.ProseMirror img.md-image { max-width: 100%; height: auto; border-radius: var(--md-radius); }
+
+/* Placeholder */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--md-text-muted);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Status bar */
+.maxdraft-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem;
+  border-top: 1px solid var(--md-toolbar-border);
+  background: var(--md-toolbar-bg);
+  font-size: 0.75rem;
+  color: var(--md-text-muted);
+}
+
+/* Callouts */
+.md-callout {
+  border-radius: var(--md-radius);
+  padding: 1em 1.25em;
+  margin: 1em 0;
+  border-left: 4px solid;
+}
+.md-callout-info    { background: #eff6ff; border-color: #3b82f6; }
+.md-callout-warning { background: #fffbeb; border-color: #f59e0b; }
+.md-callout-danger  { background: #fef2f2; border-color: #ef4444; }
+.md-callout-success { background: #f0fdf4; border-color: #22c55e; }
+.md-callout-tip     { background: #f5f3ff; border-color: #8b5cf6; }
+
+/* Table */
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+.ProseMirror th, .ProseMirror td {
+  border: 1px solid var(--md-border);
+  padding: 0.5em 0.75em;
+}
+.ProseMirror th { background: var(--md-bg-secondary); font-weight: 600; }

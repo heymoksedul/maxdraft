@@ -1,0 +1,33 @@
+{
+  "name": "@maxdraft/themes",
+  "version": "0.0.1",
+  "description": "CSS variable-based themes for MaxDraft editor",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./classic": "./dist/classic.css",
+    "./minimal": "./dist/minimal.css",
+    "./dark": "./dist/dark.css",
+    "./wordpress": "./dist/wordpress.css",
+    "./base": "./dist/base.css"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup && node scripts/build-css.mjs",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "sideEffects": ["./dist/*.css"]
+}

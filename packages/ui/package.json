@@ -1,0 +1,51 @@
+{
+  "name": "@maxdraft/ui",
+  "version": "0.0.1",
+  "description": "UI components for MaxDraft editor — Toolbar, BubbleMenu, SlashCommand",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/styles.css"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@maxdraft/core": "workspace:*",
+    "@maxdraft/shared": "workspace:*",
+    "@tiptap/react": "^2.3.0",
+    "@tiptap/extension-bubble-menu": "^2.3.0",
+    "lucide-react": "^0.368.0",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-tooltip": "^1.0.7",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-toggle": "^1.0.3",
+    "@radix-ui/react-toggle-group": "^1.0.4",
+    "cmdk": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": ">=4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "sideEffects": ["./dist/styles.css"]
+}
